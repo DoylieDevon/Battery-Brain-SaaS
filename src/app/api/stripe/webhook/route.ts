@@ -34,7 +34,6 @@ export async function POST(request: Request) {
         stripe_sub_id: sub.id,
         status: sub.status,
         trial_ends_at: sub.trial_end ? new Date(sub.trial_end * 1000).toISOString() : null,
-        current_period_end: new Date(sub.current_period_end * 1000).toISOString(),
         cancel_at_period_end: sub.cancel_at_period_end,
         updated_at: new Date().toISOString(),
       }, { onConflict: "stripe_sub_id" });
@@ -59,7 +58,6 @@ export async function POST(request: Request) {
           stripe_sub_id: subId,
           status: fullSub.status,
           trial_ends_at: fullSub.trial_end ? new Date(fullSub.trial_end * 1000).toISOString() : null,
-          current_period_end: new Date(fullSub.current_period_end * 1000).toISOString(),
           cancel_at_period_end: fullSub.cancel_at_period_end,
           updated_at: new Date().toISOString(),
         }, { onConflict: "stripe_customer_id" });
