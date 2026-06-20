@@ -3,6 +3,21 @@ import { APP_VERSION, APP_NAME } from "@/lib/version";
 
 const CHANGELOG = [
   {
+    version: "0.2.4",
+    date: "2026-06-20",
+    title: "The dashboard grew up",
+    description:
+      "The original Battery Brain dashboard had more numbers than a spreadsheet — Hum's was a bit sparse by comparison. Fixed. You now get kWh totals for everything, a full savings breakdown showing what you spent charging vs what you avoided paying at peak, the brain's full decision reason, live weather with a note on how the temperature affects your battery, and 12 plan slots instead of 8.",
+    changes: [
+      "New: energy stats row — live W + kWh today for Battery, Grid, Home, and Solar",
+      "New: savings breakdown — charge cost vs peak avoidance vs net saved",
+      "New: brain decision card with full reason text and inverter schedule details",
+      "New: live weather widget using Open-Meteo (no API key, uses your location)",
+      "New: temperature effect note — warns if cold (<10°C) or very hot (>38°C) conditions will affect battery charging speed or capacity",
+      "Improved: plan timeline now shows 12 half-hour slots instead of 8",
+    ],
+  },
+  {
     version: "0.2.3",
     date: "2026-06-20",
     title: "The housekeeping release",
