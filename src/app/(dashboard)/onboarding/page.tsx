@@ -59,10 +59,13 @@ export default function OnboardingPage() {
   async function detectInverter() {
     setLoading(true); setError("");
     try {
-      const r = await fetch(`https://api.givenergy.cloud/v1/inverter/${form.geSerial}/system-data/latest`, {
-        headers: { Authorization: `Bearer ${form.geToken}`, Accept: "application/json" },
+      const r = await fetch("/api/verify-ge", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token: form.geToken, serial: form.geSerial }),
       });
-      if (!r.ok) throw new Error("Could not connect — check your API key and inverter serial.");
+      const json = await r.json();
+      if (!r.ok) throw new Error(json.error || "Could not connect — check your API key and inverter serial.");
       setStep(1);
     } catch (e: unknown) {
       setError(e instanceof Error ? e.message : "Connection failed");
