@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Hanken Grotesk", sans-serif; -webkit-font-smoothing: antialiased; }
+  @keyframes humpulse { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(2.4); opacity: 0; } }
+</style>
+</helmet>
+
+<div style="background: #E5ECE7; min-width: 100%; width: max-content; min-height: 100vh; box-sizing: border-box; padding: 56px; font-family: 'Hanken Grotesk', sans-serif;">
+
+  <!-- ============ HEADER ============ -->
+  <div style="max-width: 920px; margin-bottom: 44px;">
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 18px;">
+      <div style="width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(145deg, #18C172, #0E9C7A); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(14,156,122,.35);">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 13c0-4 3-7 7-7s7 3 7 7" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><path d="M8.5 13c0-2 1.6-3.4 3.5-3.4S15.5 11 15.5 13" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="13" r="1.6" fill="#fff"/></svg>
+      </div>
+      <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; color: #0E2A24; letter-spacing: -.02em;">Hum</span>
+    </div>
+    <h1 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 30px; color: #0E2A24; letter-spacing: -.025em; margin-bottom: 8px;">Battery Brain, reimagined for people</h1>
+    <p style="font-size: 16px; line-height: 1.55; color: #51635C; max-width: 680px;">An end-to-end concept that turns a technical smart-charging dashboard into a calm, friendly B2C product — a marketing site plus the full logged-in journey, from first connect to daily peace of mind. Built for UK homes with a GivEnergy battery on an Octopus tariff.</p>
+  </div>
+
+  <!-- ============ SECTION 01: LANDING ============ -->
+  <div style="margin-bottom: 14px; display: flex; align-items: baseline; gap: 10px;">
+    <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #0E9C7A;">01 — Landing page</span>
+    <span style="font-size: 13px; color: #8A988F;">Desktop · marketing</span>
+  </div>
+
+  <div style="display: flex; gap: 56px; align-items: flex-start; margin-bottom: 64px;">
+    <div style="flex: none; width: 1280px;">
+      <div style="border-radius: 16px 16px 4px 4px; overflow: hidden; box-shadow: 0 2px 4px rgba(16,36,30,.06), 0 24px 60px rgba(16,36,30,.12); background: #fff;">
+        <!-- browser chrome -->
+        <div style="height: 44px; background: #F2F5F3; border-bottom: 1px solid #E7EEEA; display: flex; align-items: center; padding: 0 16px; gap: 8px;">
+          <div style="width: 11px; height: 11px; border-radius: 50%; background: #FF6058;"></div>
+          <div style="width: 11px; height: 11px; border-radius: 50%; background: #FEBC2E;"></div>
+          <div style="width: 11px; height: 11px; border-radius: 50%; background: #29C840;"></div>
+          <div style="margin: 0 auto; background: #fff; border: 1px solid #E7EEEA; border-radius: 8px; height: 26px; width: 380px; display: flex; align-items: center; justify-content: center; gap: 7px; font-size: 12.5px; color: #8A988F;">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M7 11V8a5 5 0 0 1 10 0v3" stroke="#9FB0A7" stroke-width="2"/><rect x="5" y="11" width="14" height="9" rx="2.2" fill="#C9D6CF"/></svg>
+            gethum.co.uk
+          </div>
+        </div>
+
+        <div style="background: #F7FAF8;">
+          <!-- nav -->
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 22px 56px;">
+            <div style="display: flex; align-items: center; gap: 9px;">
+              <div style="width: 32px; height: 32px; border-radius: 10px; background: linear-gradient(145deg, #18C172, #0E9C7A); display: flex; align-items: center; justify-content: center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 13c0-4 3-7 7-7s7 3 7 7" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><path d="M8.5 13c0-2 1.6-3.4 3.5-3.4S15.5 11 15.5 13" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="13" r="1.6" fill="#fff"/></svg>
+              </div>
+              <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 21px; color: #0E2A24; letter-spacing: -.02em;">Hum</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 34px;">
+              <span style="font-size: 15px; color: #51635C; font-weight: 500;">How it works</span>
+              <span style="font-size: 15px; color: #51635C; font-weight: 500;">Savings</span>
+              <span style="font-size: 15px; color: #51635C; font-weight: 500;">Compatibility</span>
+              <span style="font-size: 15px; color: #0E2A24; font-weight: 600;">Log in</span>
+              <span style="font-size: 15px; color: #fff; font-weight: 600; background: #0E2A24; padding: 11px 20px; border-radius: 999px;">Get started</span>
+            </div>
+          </div>
+
+          <!-- hero -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 40px 56px 64px;">
+            <div>
+              <div style="display: inline-flex; align-items: center; gap: 8px; background: #E4F6EC; border-radius: 999px; padding: 7px 14px; margin-bottom: 22px;">
+                <span style="width: 7px; height: 7px; border-radius: 50%; background: #18C172;"></span>
+                <span style="font-size: 13px; font-weight: 600; color: #0E9C7A;">For GivEnergy batteries on Octopus · UK only</span>
+              </div>
+              <h2 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 58px; line-height: 1.02; letter-spacing: -.035em; color: #0E2A24; margin-bottom: 20px;">Your home battery,<br>on autopilot.</h2>
+              <p style="font-size: 18px; line-height: 1.6; color: #51635C; max-width: 460px; margin-bottom: 30px;">Hum quietly charges your battery when power is cheapest, then runs your home through the expensive evening peak. You save money every day — without lifting a finger.</p>
+              <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 26px;">
+                <span style="font-size: 16px; font-weight: 600; color: #fff; background: linear-gradient(145deg, #18C172, #0E9C7A); padding: 16px 28px; border-radius: 999px; box-shadow: 0 8px 20px rgba(14,156,122,.32);">Connect my battery</span>
+                <span style="font-size: 16px; font-weight: 600; color: #0E2A24; display: inline-flex; align-items: center; gap: 8px;">See a live day
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#0E2A24" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 20px;">
+                <div>
+                  <div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 26px; color: #0E2A24;">£17<span style="font-size: 17px;">/wk</span></div>
+                  <div style="font-size: 13px; color: #8A988F;">typical saving</div>
+                </div>
+                <div style="width: 1px; height: 38px; background: #DDE7E1;"></div>
+                <div>
+                  <div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 26px; color: #0E2A24;">0</div>
+                  <div style="font-size: 13px; color: #8A988F;">settings to fiddle with</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- hero card -->
+            <div style="background: #fff; border-radius: 28px; padding: 26px; box-shadow: 0 2px 4px rgba(16,36,30,.04), 0 30px 60px rgba(16,36,30,.10);">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+                <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 17px; color: #0E2A24;">Today's plan</span>
+                <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #0E9C7A; background: #E4F6EC; padding: 5px 11px; border-radius: 999px;">
+                  <span style="position: relative; width: 7px; height: 7px;"><span style="position: absolute; inset: 0; border-radius: 50%; background: #18C172;"></span><span style="position: absolute; inset: 0; border-radius: 50%; background: #18C172; animation: humpulse 2s infinite;"></span></span>
+                  Live
+                </span>
+              </div>
+              <svg viewBox="0 0 480 200" style="width: 100%; height: auto; display: block;">
+                <defs><linearGradient id="socfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#18C172" stop-opacity="0.22"/><stop offset="1" stop-color="#18C172" stop-opacity="0"/></linearGradient></defs>
+                <rect x="0" y="8" width="480" height="158" rx="12" fill="#F4F7F5"/>
+                <rect x="80" y="8" width="60" height="158" fill="#D8F1E1"/>
+                <rect x="260" y="8" width="60" height="158" fill="#D8F1E1"/>
+                <rect x="440" y="8" width="40" height="158" fill="#D8F1E1"/>
+                <rect x="320" y="8" width="60" height="158" fill="#FFE0D6"/>
+                <path d="M0 124 L80 126 L140 56 L200 82 L260 99 L320 24 L340 53 L360 85 L380 111 L420 137 L440 137 L480 99 L480 166 L0 166 Z" fill="url(#socfill)"/>
+                <path d="M0 124 L80 126 L140 56 L200 82 L260 99 L320 24 L340 53 L360 85 L380 111 L420 137 L440 137 L480 99" fill="none" stroke="#0E9C7A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+                <circle cx="320" cy="24" r="5" fill="#0E9C7A" stroke="#fff" stroke-width="2.5"/>
+                <text x="348" y="22" font-family="Hanken Grotesk" font-size="13" font-weight="700" fill="#0E9C7A">100% by 4pm</text>
+                <text x="0" y="186" font-family="Hanken Grotesk" font-size="11" fill="#9FB0A7">12am</text>
+                <text x="218" y="186" font-family="Hanken Grotesk" font-size="11" fill="#9FB0A7">noon</text>
+                <text x="333" y="186" font-family="Hanken Grotesk" font-size="11" font-weight="700" fill="#D86A4A">peak</text>
+                <text x="446" y="186" font-family="Hanken Grotesk" font-size="11" fill="#9FB0A7">12am</text>
+              </svg>
+              <div style="display: flex; gap: 16px; margin-top: 6px; margin-bottom: 18px;">
+                <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: #6B7A73;"><span style="width: 11px; height: 11px; border-radius: 3px; background: #D8F1E1;"></span>Cheap power</span>
+                <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: #6B7A73;"><span style="width: 11px; height: 11px; border-radius: 3px; background: #FFE0D6;"></span>Pricey peak</span>
+              </div>
+              <div style="background: #F2FBF6; border-radius: 16px; padding: 15px 17px; display: flex; align-items: center; gap: 13px;">
+                <div style="width: 38px; height: 38px; border-radius: 11px; background: #18C172; display: flex; align-items: center; justify-content: center; flex: none;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" fill="#fff"/></svg>
+                </div>
+                <div>
+                  <div style="font-weight: 700; font-size: 15px; color: #0E2A24;">You're covered until ~9pm tonight</div>
+                  <div style="font-size: 13px; color: #6B7A73;">Charged on cheap power. Zero from the grid at peak.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- how it works -->
+          <div style="padding: 56px; background: #fff;">
+            <div style="text-align: center; margin-bottom: 44px;">
+              <span style="font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #0E9C7A;">How it works</span>
+              <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 36px; letter-spacing: -.03em; color: #0E2A24; margin-top: 10px;">Set it once. Save every day.</h3>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto;">
+              <div style="background: #F7FAF8; border-radius: 24px; padding: 30px;">
+                <div style="width: 52px; height: 52px; border-radius: 15px; background: #E4F6EC; display: flex; align-items: center; justify-content: center; margin-bottom: 18px;">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M9 7 4 12l5 5M15 7l5 5-5 5" stroke="#0E9C7A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div style="font-size: 13px; font-weight: 700; color: #0E9C7A; margin-bottom: 6px;">STEP 1</div>
+                <h4 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 21px; color: #0E2A24; margin-bottom: 8px;">Connect in 2 minutes</h4>
+                <p style="font-size: 15px; line-height: 1.55; color: #51635C;">Sign in to your GivEnergy and Octopus accounts. No installer, no wiring — Hum talks to them for you.</p>
+              </div>
+              <div style="background: #F7FAF8; border-radius: 24px; padding: 30px;">
+                <div style="width: 52px; height: 52px; border-radius: 15px; background: #E4F6EC; display: flex; align-items: center; justify-content: center; margin-bottom: 18px;">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="13" r="6.5" stroke="#0E9C7A" stroke-width="2.2"/><path d="M12 7V4M5 12H3M21 12h-2" stroke="#0E9C7A" stroke-width="2.2" stroke-linecap="round"/><path d="M12 10v3l2 1" stroke="#0E9C7A" stroke-width="2.2" stroke-linecap="round"/></svg>
+                </div>
+                <div style="font-size: 13px; font-weight: 700; color: #0E9C7A; margin-bottom: 6px;">STEP 2</div>
+                <h4 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 21px; color: #0E2A24; margin-bottom: 8px;">Hum learns your home</h4>
+                <p style="font-size: 15px; line-height: 1.55; color: #51635C;">It studies your usage and tomorrow's Octopus prices, then plans the perfect charge — full before peak, every time.</p>
+              </div>
+              <div style="background: #F7FAF8; border-radius: 24px; padding: 30px;">
+                <div style="width: 52px; height: 52px; border-radius: 15px; background: #E4F6EC; display: flex; align-items: center; justify-content: center; margin-bottom: 18px;">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z" fill="#0E9C7A"/></svg>
+                </div>
+                <div style="font-size: 13px; font-weight: 700; color: #0E9C7A; margin-bottom: 6px;">STEP 3</div>
+                <h4 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 21px; color: #0E2A24; margin-bottom: 8px;">Relax — you're covered</h4>
+                <p style="font-size: 15px; line-height: 1.55; color: #51635C;">Run on your own stored power through the pricey evening. Check in anytime to see what you saved.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- savings band -->
+          <div style="padding: 56px; background: linear-gradient(160deg, #0E2A24, #103D31);">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; max-width: 1040px; margin: 0 auto;">
+              <div>
+                <span style="font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #6FE3A8;">The payoff</span>
+                <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 38px; letter-spacing: -.03em; color: #fff; margin: 10px 0 16px; line-height: 1.08;">Never pay peak prices again.</h3>
+                <p style="font-size: 17px; line-height: 1.6; color: #B7CABF; margin-bottom: 26px;">A fully-cycled battery on the Octopus Cosy tariff is worth up to <b style="color:#fff;">£2.80 a day</b>. Hum makes sure none of that value is left on the table.</p>
+                <div style="display: flex; gap: 28px;">
+                  <div><div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 34px; color: #fff;">£17.40</div><div style="font-size: 13px; color: #8FA89B;">saved this week</div></div>
+                  <div><div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 34px; color: #fff;">6/7</div><div style="font-size: 13px; color: #8FA89B;">days fully covered</div></div>
+                </div>
+              </div>
+              <div style="background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.10); border-radius: 24px; padding: 28px;">
+                <div style="display: flex; align-items: flex-end; justify-content: space-between; height: 150px; gap: 12px;">
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;"><div style="width: 100%; height: 78px; background: #2FBE7C; border-radius: 8px;"></div><span style="font-size: 12px; color: #8FA89B;">M</span></div>
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;"><div style="width: 100%; height: 118px; background: #4FD597; border-radius: 8px;"></div><span style="font-size: 12px; color: #8FA89B;">T</span></div>
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;"><div style="width: 100%; height: 92px; background: #2FBE7C; border-radius: 8px;"></div><span style="font-size: 12px; color: #8FA89B;">W</span></div>
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;"><div style="width: 100%; height: 104px; background: #2FBE7C; border-radius: 8px;"></div><span style="font-size: 12px; color: #8FA89B;">T</span></div>
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;"><div style="width: 100%; height: 70px; background: #2FBE7C; border-radius: 8px;"></div><span style="font-size: 12px; color: #8FA89B;">F</span></div>
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;"><div style="width: 100%; height: 60px; background: #2FBE7C; border-radius: 8px;"></div><span style="font-size: 12px; color: #8FA89B;">S</span></div>
+                  <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1;"><div style="width: 100%; height: 88px; background: #2FBE7C; border-radius: 8px;"></div><span style="font-size: 12px; color: #8FA89B;">S</span></div>
+                </div>
+                <div style="margin-top: 16px; border-top: 1px solid rgba(255,255,255,.10); padding-top: 14px; font-size: 13px; color: #8FA89B;">Daily savings · last 7 days</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- features -->
+          <div style="padding: 56px; background: #F7FAF8;">
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1100px; margin: 0 auto;">
+              <div style="background: #fff; border: 1px solid #EAF1ED; border-radius: 20px; padding: 24px;">
+                <div style="width: 44px; height: 44px; border-radius: 13px; background: #E4F6EC; display: flex; align-items: center; justify-content: center; margin-bottom: 14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3a5 5 0 0 0-5 5c0 1.5.7 2.4 1.2 3 .5.7.8 1.2.8 2.5h6c0-1.3.3-1.8.8-2.5.5-.6 1.2-1.5 1.2-3a5 5 0 0 0-5-5Z" stroke="#0E9C7A" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 19h4M10.5 21.5h3" stroke="#0E9C7A" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+                <h4 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 17px; color: #0E2A24; margin-bottom: 6px;">Thinks ahead</h4>
+                <p style="font-size: 14px; line-height: 1.5; color: #6B7A73;">Reads tomorrow's prices and tops up early if a cheap window won't be enough.</p>
+              </div>
+              <div style="background: #fff; border: 1px solid #EAF1ED; border-radius: 20px; padding: 24px;">
+                <div style="width: 44px; height: 44px; border-radius: 13px; background: #E4F6EC; display: flex; align-items: center; justify-content: center; margin-bottom: 14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4-7-10V6l7-3 7 3v5c0 6-7 10-7 10Z" stroke="#0E9C7A" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 11.5l2 2 4-4.5" stroke="#0E9C7A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <h4 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 17px; color: #0E2A24; margin-bottom: 6px;">Peak protection</h4>
+                <p style="font-size: 14px; line-height: 1.5; color: #6B7A73;">Holds your charge for the 4–7pm window so you never import at the top rate.</p>
+              </div>
+              <div style="background: #fff; border: 1px solid #EAF1ED; border-radius: 20px; padding: 24px;">
+                <div style="width: 44px; height: 44px; border-radius: 13px; background: #E4F6EC; display: flex; align-items: center; justify-content: center; margin-bottom: 14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 3V6a1 1 0 0 1 1-1Z" stroke="#0E9C7A" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+                <h4 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 17px; color: #0E2A24; margin-bottom: 6px;">Friendly nudges</h4>
+                <p style="font-size: 14px; line-height: 1.5; color: #6B7A73;">A gentle heads-up if your battery ever goes quiet — in plain English, not error codes.</p>
+              </div>
+              <div style="background: #fff; border: 1px solid #EAF1ED; border-radius: 20px; padding: 24px;">
+                <div style="width: 44px; height: 44px; border-radius: 13px; background: #E4F6EC; display: flex; align-items: center; justify-content: center; margin-bottom: 14px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 13a8 8 0 0 1 16 0" stroke="#0E9C7A" stroke-width="1.8" stroke-linecap="round"/><path d="M12 13l4-2.5" stroke="#0E9C7A" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="13" r="1.5" fill="#0E9C7A"/><path d="M4 17h16" stroke="#0E9C7A" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+                <h4 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 17px; color: #0E2A24; margin-bottom: 6px;">No guesswork</h4>
+                <p style="font-size: 14px; line-height: 1.5; color: #6B7A73;">See exactly what Hum did and what it saved — every single day, in pounds.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div style="padding: 64px 56px; background: #fff; text-align: center; border-top: 1px solid #EEF3F0;">
+            <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 40px; letter-spacing: -.03em; color: #0E2A24; margin-bottom: 14px;">Put your battery to work.</h3>
+            <p style="font-size: 17px; color: #51635C; margin-bottom: 26px;">Free to try. Connects in two minutes. Cancel anytime.</p>
+            <span style="display: inline-block; font-size: 16px; font-weight: 600; color: #fff; background: linear-gradient(145deg, #18C172, #0E9C7A); padding: 16px 32px; border-radius: 999px; box-shadow: 0 8px 20px rgba(14,156,122,.32);">Connect my battery</span>
+            <div style="margin-top: 40px; display: flex; align-items: center; justify-content: center; gap: 8px; color: #9FB0A7; font-size: 13px;">
+              <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; color: #C2CFC8;">Hum</span> · © 2026 · Works with GivEnergy + Octopus · UK only
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SECTION 02: APP ============ -->
+  <div style="margin-bottom: 14px; display: flex; align-items: baseline; gap: 10px;">
+    <span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #0E9C7A;">02 — The app</span>
+    <span style="font-size: 13px; color: #8A988F;">Mobile · the logged-in journey, end to end</span>
+  </div>
+
+  <div style="display: flex; gap: 40px; align-items: flex-start;">
+
+    <!-- PHONE 1: WELCOME / LOGIN -->
+    <div style="flex: none; width: 360px;">
+      <div style="font-size: 13px; font-weight: 600; color: #5A6B63; margin-bottom: 12px;">Welcome &amp; sign in</div>
+      <div style="width: 360px; background: #11201B; border-radius: 46px; padding: 11px; box-shadow: 0 2px 4px rgba(16,36,30,.08), 0 30px 60px rgba(16,36,30,.16);">
+        <div style="background: linear-gradient(170deg, #0E9C7A 0%, #11A877 38%, #F7FAF8 38%, #F7FAF8 100%); border-radius: 37px; overflow: hidden; height: 760px; position: relative;">
+          <!-- status bar -->
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 26px 6px; color: #fff;">
+            <span style="font-size: 14px; font-weight: 700;">9:41</span>
+            <div style="display: flex; gap: 6px; align-items: center;"><svg width="17" height="11" viewBox="0 0 18 12" fill="none"><rect x="0" y="7" width="3" height="5" rx="1" fill="#fff"/><rect x="5" y="4" width="3" height="8" rx="1" fill="#fff"/><rect x="10" y="1.5" width="3" height="10.5" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff" opacity=".5"/></svg><svg width="22" height="11" viewBox="0 0 24 12" fill="none"><rect x="1" y="1" width="20" height="10" rx="3" stroke="#fff" stroke-opacity=".6"/><rect x="3" y="3" width="15" height="6" rx="1.5" fill="#fff"/><rect x="22" y="4" width="1.5" height="4" rx=".75" fill="#fff"/></svg></div>
+          </div>
+          <!-- hero -->
+          <div style="padding: 44px 30px 0; color: #fff; text-align: center;">
+            <div style="width: 72px; height: 72px; border-radius: 22px; background: rgba(255,255,255,.16); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; margin: 0 auto 22px;">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M5 13c0-4 3-7 7-7s7 3 7 7" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><path d="M8.5 13c0-2 1.6-3.4 3.5-3.4S15.5 11 15.5 13" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="13" r="1.5" fill="#fff"/></svg>
+            </div>
+            <div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 34px; letter-spacing: -.02em;">Hum</div>
+            <p style="font-size: 16px; line-height: 1.5; opacity: .92; margin-top: 8px;">Your home battery, on autopilot.</p>
+          </div>
+          <!-- sheet -->
+          <div style="position: absolute; left: 0; right: 0; bottom: 0; background: #fff; border-radius: 32px 32px 37px 37px; padding: 30px 26px 30px; box-shadow: 0 -10px 40px rgba(16,36,30,.10);">
+            <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 22px; color: #0E2A24; margin-bottom: 4px;">Welcome back</h3>
+            <p style="font-size: 14px; color: #7C8A83; margin-bottom: 22px;">Sign in to check on today's plan.</p>
+            <div style="font-size: 13px; font-weight: 600; color: #5A6B63; margin-bottom: 7px;">Email</div>
+            <div style="background: #F4F8F5; border: 1px solid #E5EDE8; border-radius: 14px; padding: 15px 16px; font-size: 15px; color: #0E2A24; margin-bottom: 14px;">you@home.co.uk</div>
+            <div style="font-size: 13px; font-weight: 600; color: #5A6B63; margin-bottom: 7px;">Password</div>
+            <div style="background: #F4F8F5; border: 1px solid #E5EDE8; border-radius: 14px; padding: 15px 16px; font-size: 15px; color: #B6C2BB; margin-bottom: 22px; display: flex; justify-content: space-between; align-items: center;"><span style="letter-spacing: 3px; color: #0E2A24;">••••••••</span><span style="font-size: 13px; color: #0E9C7A; font-weight: 600;">Show</span></div>
+            <div style="background: linear-gradient(145deg, #18C172, #0E9C7A); border-radius: 16px; padding: 17px; text-align: center; color: #fff; font-weight: 700; font-size: 16px; box-shadow: 0 8px 18px rgba(14,156,122,.28);">Log in</div>
+            <div style="text-align: center; margin-top: 18px; font-size: 14px; color: #7C8A83;">New here? <span style="color: #0E9C7A; font-weight: 600;">Connect your battery</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHONE 2: ONBOARDING -->
+    <div style="flex: none; width: 360px;">
+      <div style="font-size: 13px; font-weight: 600; color: #5A6B63; margin-bottom: 12px;">Onboarding · connect your battery</div>
+      <div style="width: 360px; background: #11201B; border-radius: 46px; padding: 11px; box-shadow: 0 2px 4px rgba(16,36,30,.08), 0 30px 60px rgba(16,36,30,.16);">
+        <div style="background: #F7FAF8; border-radius: 37px; overflow: hidden; height: 760px; position: relative;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 26px 6px; color: #0E2A24;">
+            <span style="font-size: 14px; font-weight: 700;">9:41</span>
+            <div style="display: flex; gap: 6px; align-items: center;"><svg width="17" height="11" viewBox="0 0 18 12" fill="none"><rect x="0" y="7" width="3" height="5" rx="1" fill="#0E2A24"/><rect x="5" y="4" width="3" height="8" rx="1" fill="#0E2A24"/><rect x="10" y="1.5" width="3" height="10.5" rx="1" fill="#0E2A24"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#0E2A24" opacity=".4"/></svg><svg width="22" height="11" viewBox="0 0 24 12" fill="none"><rect x="1" y="1" width="20" height="10" rx="3" stroke="#0E2A24" stroke-opacity=".5"/><rect x="3" y="3" width="15" height="6" rx="1.5" fill="#0E2A24"/><rect x="22" y="4" width="1.5" height="4" rx=".75" fill="#0E2A24"/></svg></div>
+          </div>
+          <div style="padding: 8px 26px 0;">
+            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 26px;">
+              <span style="font-size: 22px; color: #B6C2BB;">←</span>
+              <div style="flex: 1; height: 6px; background: #E5EDE8; border-radius: 3px; overflow: hidden;"><div style="width: 66%; height: 100%; background: #18C172; border-radius: 3px;"></div></div>
+              <span style="font-size: 13px; font-weight: 600; color: #7C8A83;">2 of 3</span>
+            </div>
+            <h3 style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 25px; line-height: 1.15; color: #0E2A24; margin-bottom: 8px; letter-spacing: -.02em;">Let's connect your accounts</h3>
+            <p style="font-size: 15px; line-height: 1.5; color: #7C8A83; margin-bottom: 26px;">Hum needs read access to your battery and tariff. Your logins stay with the providers — we never see them.</p>
+
+            <!-- givenergy connected -->
+            <div style="background: #fff; border: 1px solid #D7EEDF; border-radius: 18px; padding: 18px; margin-bottom: 14px; display: flex; align-items: center; gap: 14px;">
+              <div style="width: 46px; height: 46px; border-radius: 13px; background: #EAF6EF; display: flex; align-items: center; justify-content: center; flex: none;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="4" y="7" width="13" height="10" rx="2" stroke="#0E9C7A" stroke-width="1.8"/><rect x="17" y="10" width="3" height="4" rx="1" fill="#0E9C7A"/><path d="M9 9.5 7.5 12H10l-1.5 2.5" stroke="#0E9C7A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div style="flex: 1;"><div style="font-weight: 700; font-size: 15.5px; color: #0E2A24;">GivEnergy</div><div style="font-size: 13px; color: #7C8A83;">Battery &amp; inverter</div></div>
+              <span style="display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 700; color: #0E9C7A;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#18C172"/><path d="m8 12 3 3 5-6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Linked</span>
+            </div>
+
+            <!-- octopus connecting -->
+            <div style="background: #fff; border: 2px solid #18C172; border-radius: 18px; padding: 18px; margin-bottom: 14px; display: flex; align-items: center; gap: 14px;">
+              <div style="width: 46px; height: 46px; border-radius: 13px; background: #EAF6EF; display: flex; align-items: center; justify-content: center; flex: none;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 4a7 7 0 0 0-7 7v5l2-1.5 2 1.5 3-1.5 3 1.5 2-1.5V11a7 7 0 0 0-7-7Z" stroke="#0E9C7A" stroke-width="1.7" stroke-linejoin="round"/><circle cx="9.5" cy="10.5" r="1" fill="#0E9C7A"/><circle cx="14.5" cy="10.5" r="1" fill="#0E9C7A"/></svg></div>
+              <div style="flex: 1;"><div style="font-weight: 700; font-size: 15.5px; color: #0E2A24;">Octopus Energy</div><div style="font-size: 13px; color: #7C8A83;">Tariff &amp; prices</div></div>
+              <span style="font-size: 13px; font-weight: 700; color: #fff; background: #18C172; padding: 8px 14px; border-radius: 999px;">Connect</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px; background: #EEF6F1; border-radius: 14px; padding: 13px 15px; margin-top: 8px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3 5 6v5c0 5 7 10 7 10s7-5 7-10V6l-7-3Z" stroke="#0E9C7A" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              <span style="font-size: 13px; line-height: 1.4; color: #4E635A;">Read-only &amp; encrypted. Hum can see your data but never changes your settings without asking.</span>
+            </div>
+          </div>
+          <div style="position: absolute; left: 26px; right: 26px; bottom: 28px;">
+            <div style="background: #DDE7E1; border-radius: 16px; padding: 17px; text-align: center; color: #9FB0A7; font-weight: 700; font-size: 16px;">Continue</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHONE 3: DASHBOARD -->
+    <div style="flex: none; width: 360px;">
+      <div style="font-size: 13px; font-weight: 600; color: #5A6B63; margin-bottom: 12px;">Today · live status &amp; plan <span style="color:#0E9C7A;">★ home</span></div>
+      <div style="width: 360px; background: #11201B; border-radius: 46px; padding: 11px; box-shadow: 0 2px 4px rgba(16,36,30,.08), 0 30px 60px rgba(16,36,30,.16);">
+        <div style="background: #F7FAF8; border-radius: 37px; overflow: hidden; height: 760px; position: relative;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 26px 6px; color: #0E2A24;">
+            <span style="font-size: 14px; font-weight: 700;">9:41</span>
+            <div style="display: flex; gap: 6px; align-items: center;"><svg width="17" height="11" viewBox="0 0 18 12" fill="none"><rect x="0" y="7" width="3" height="5" rx="1" fill="#0E2A24"/><rect x="5" y="4" width="3" height="8" rx="1" fill="#0E2A24"/><rect x="10" y="1.5" width="3" height="10.5" rx="1" fill="#0E2A24"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#0E2A24" opacity=".4"/></svg><svg width="22" height="11" viewBox="0 0 24 12" fill="none"><rect x="1" y="1" width="20" height="10" rx="3" stroke="#0E2A24" stroke-opacity=".5"/><rect x="3" y="3" width="15" height="6" rx="1.5" fill="#0E2A24"/><rect x="22" y="4" width="1.5" height="4" rx=".75" fill="#0E2A24"/></svg></div>
+          </div>
+          <div style="padding: 6px 22px 96px; height: 100%; overflow: hidden;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;">
+              <div><div style="font-size: 14px; color: #7C8A83;">Good morning, Sam</div><div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 22px; color: #0E2A24; letter-spacing: -.02em;">Today</div></div>
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: #E4F6EC; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #0E9C7A;">S</div>
+            </div>
+
+            <!-- big status card -->
+            <div style="background: linear-gradient(160deg, #0E9C7A, #11A877); border-radius: 26px; padding: 22px; color: #fff; margin-bottom: 14px; position: relative; overflow: hidden;">
+              <div style="display: flex; align-items: center; gap: 18px;">
+                <svg width="92" height="92" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="9"/>
+                  <circle cx="50" cy="50" r="42" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-dasharray="264" stroke-dashoffset="58" transform="rotate(-90 50 50)"/>
+                  <text x="50" y="48" text-anchor="middle" font-family="Bricolage Grotesque" font-weight="800" font-size="26" fill="#fff">78%</text>
+                  <text x="50" y="64" text-anchor="middle" font-family="Hanken Grotesk" font-size="10" fill="#D6F2E5">charged</text>
+                </svg>
+                <div style="flex: 1;">
+                  <div style="font-size: 13px; opacity: .85; margin-bottom: 3px;">Right now</div>
+                  <div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 19px; line-height: 1.2;">Running your home on battery</div>
+                  <div style="font-size: 13.5px; opacity: .9; margin-top: 4px;">Covered until <b>~9pm</b> tonight</div>
+                </div>
+              </div>
+              <div style="display: flex; gap: 8px; margin-top: 16px;">
+                <div style="flex: 1; background: rgba(255,255,255,.14); border-radius: 13px; padding: 11px 13px;"><div style="font-size: 12px; opacity: .85;">From grid now</div><div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 17px;">£0.00</div></div>
+                <div style="flex: 1; background: rgba(255,255,255,.14); border-radius: 13px; padding: 11px 13px;"><div style="font-size: 12px; opacity: .85;">Saved today</div><div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 17px;">£2.40</div></div>
+              </div>
+            </div>
+
+            <!-- plan timeline -->
+            <div style="background: #fff; border: 1px solid #EAF1ED; border-radius: 22px; padding: 18px; margin-bottom: 14px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;"><span style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 16px; color: #0E2A24;">Today's plan</span><span style="font-size: 12.5px; color: #0E9C7A; font-weight: 600;">All on track</span></div>
+              <!-- moments -->
+              <div style="display: flex; flex-direction: column; gap: 0;">
+                <div style="display: flex; gap: 13px;">
+                  <div style="display: flex; flex-direction: column; align-items: center;"><div style="width: 12px; height: 12px; border-radius: 50%; background: #18C172;"></div><div style="width: 2px; flex: 1; background: #E5EDE8;"></div></div>
+                  <div style="padding-bottom: 16px;"><div style="font-size: 14px; font-weight: 700; color: #0E2A24;">Charged overnight <span style="font-weight:500; color:#9FB0A7;">· 4–7am</span></div><div style="font-size: 13px; color: #7C8A83;">Filled up on the cheapest power.</div></div>
+                </div>
+                <div style="display: flex; gap: 13px;">
+                  <div style="display: flex; flex-direction: column; align-items: center;"><div style="width: 12px; height: 12px; border-radius: 50%; background: #18C172;"></div><div style="width: 2px; flex: 1; background: #E5EDE8;"></div></div>
+                  <div style="padding-bottom: 16px;"><div style="font-size: 14px; font-weight: 700; color: #0E2A24;">Topped to 100% <span style="font-weight:500; color:#9FB0A7;">· 1–4pm</span></div><div style="font-size: 13px; color: #7C8A83;">Ready before the pricey evening.</div></div>
+                </div>
+                <div style="display: flex; gap: 13px;">
+                  <div style="display: flex; flex-direction: column; align-items: center;"><div style="width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 3px solid #FF8566;"></div><div style="width: 2px; flex: 1; background: #E5EDE8;"></div></div>
+                  <div style="padding-bottom: 16px;"><div style="font-size: 14px; font-weight: 700; color: #C44A2E;">On battery now <span style="font-weight:500; color:#E0A593;">· 4–7pm peak</span></div><div style="font-size: 13px; color: #7C8A83;">Skipping the 52p peak rate entirely.</div></div>
+                </div>
+                <div style="display: flex; gap: 13px;">
+                  <div style="display: flex; flex-direction: column; align-items: center;"><div style="width: 12px; height: 12px; border-radius: 50%; background: #DDE7E1;"></div></div>
+                  <div><div style="font-size: 14px; font-weight: 700; color: #9FB0A7;">Covered to ~9pm <span style="font-weight:500;">· this evening</span></div><div style="font-size: 13px; color: #B6C2BB;">Then a trickle from the grid overnight.</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- bottom nav -->
+          <div style="position: absolute; left: 0; right: 0; bottom: 0; background: #fff; border-top: 1px solid #EEF3F0; display: flex; justify-content: space-around; align-items: center; padding: 12px 20px 26px;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #0E9C7A;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M4 11 12 4l8 7" stroke="#0E9C7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10v8h12v-8" stroke="#0E9C7A" stroke-width="2" stroke-linejoin="round"/></svg><span style="font-size: 11px; font-weight: 700;">Today</span></div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #B6C2BB;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M5 19V10M12 19V5M19 19v-6" stroke="#B6C2BB" stroke-width="2" stroke-linecap="round"/></svg><span style="font-size: 11px; font-weight: 600;">Savings</span></div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #B6C2BB;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3.2" stroke="#B6C2BB" stroke-width="2"/><path d="M12 4v2M12 18v2M4 12h2M18 12h2M6 6l1.5 1.5M16.5 16.5 18 18M18 6l-1.5 1.5M7.5 16.5 6 18" stroke="#B6C2BB" stroke-width="2" stroke-linecap="round"/></svg><span style="font-size: 11px; font-weight: 600;">Settings</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHONE 4: SAVINGS / HISTORY -->
+    <div style="flex: none; width: 360px;">
+      <div style="font-size: 13px; font-weight: 600; color: #5A6B63; margin-bottom: 12px;">Savings · history &amp; review</div>
+      <div style="width: 360px; background: #11201B; border-radius: 46px; padding: 11px; box-shadow: 0 2px 4px rgba(16,36,30,.08), 0 30px 60px rgba(16,36,30,.16);">
+        <div style="background: #F7FAF8; border-radius: 37px; overflow: hidden; height: 760px; position: relative;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 26px 6px; color: #0E2A24;">
+            <span style="font-size: 14px; font-weight: 700;">9:41</span>
+            <div style="display: flex; gap: 6px; align-items: center;"><svg width="17" height="11" viewBox="0 0 18 12" fill="none"><rect x="0" y="7" width="3" height="5" rx="1" fill="#0E2A24"/><rect x="5" y="4" width="3" height="8" rx="1" fill="#0E2A24"/><rect x="10" y="1.5" width="3" height="10.5" rx="1" fill="#0E2A24"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#0E2A24" opacity=".4"/></svg><svg width="22" height="11" viewBox="0 0 24 12" fill="none"><rect x="1" y="1" width="20" height="10" rx="3" stroke="#0E2A24" stroke-opacity=".5"/><rect x="3" y="3" width="15" height="6" rx="1.5" fill="#0E2A24"/><rect x="22" y="4" width="1.5" height="4" rx=".75" fill="#0E2A24"/></svg></div>
+          </div>
+          <div style="padding: 6px 22px 96px;">
+            <div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 22px; color: #0E2A24; letter-spacing: -.02em; margin-bottom: 16px;">Savings</div>
+
+            <!-- big number -->
+            <div style="background: #fff; border: 1px solid #EAF1ED; border-radius: 24px; padding: 22px; margin-bottom: 14px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;"><span style="font-size: 14px; color: #7C8A83;">This week</span><span style="font-size: 12px; font-weight: 600; color: #0E9C7A; background: #E4F6EC; padding: 4px 10px; border-radius: 999px;">↑ 12% vs last</span></div>
+              <div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 44px; color: #0E2A24; letter-spacing: -.03em;">£17.40</div>
+              <!-- bars -->
+              <div style="display: flex; align-items: flex-end; justify-content: space-between; height: 92px; gap: 9px; margin-top: 14px;">
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px;"><div style="width: 100%; height: 50px; background: #BDEBD2; border-radius: 6px;"></div><span style="font-size: 11px; color: #9FB0A7;">M</span></div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px;"><div style="width: 100%; height: 76px; background: #18C172; border-radius: 6px;"></div><span style="font-size: 11px; color: #0E9C7A; font-weight: 700;">T</span></div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px;"><div style="width: 100%; height: 58px; background: #BDEBD2; border-radius: 6px;"></div><span style="font-size: 11px; color: #9FB0A7;">W</span></div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px;"><div style="width: 100%; height: 66px; background: #BDEBD2; border-radius: 6px;"></div><span style="font-size: 11px; color: #9FB0A7;">T</span></div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px;"><div style="width: 100%; height: 44px; background: #BDEBD2; border-radius: 6px;"></div><span style="font-size: 11px; color: #9FB0A7;">F</span></div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px;"><div style="width: 100%; height: 38px; background: #BDEBD2; border-radius: 6px;"></div><span style="font-size: 11px; color: #9FB0A7;">S</span></div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px;"><div style="width: 100%; height: 56px; background: #BDEBD2; border-radius: 6px;"></div><span style="font-size: 11px; color: #9FB0A7;">S</span></div>
+              </div>
+            </div>
+
+            <!-- insights -->
+            <div style="display: flex; gap: 10px; margin-bottom: 14px;">
+              <div style="flex: 1; background: #fff; border: 1px solid #EAF1ED; border-radius: 18px; padding: 15px;"><div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 20px; color: #0E2A24;">6/7</div><div style="font-size: 12.5px; color: #7C8A83;">days fully covered</div></div>
+              <div style="flex: 1; background: #fff; border: 1px solid #EAF1ED; border-radius: 18px; padding: 15px;"><div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 20px; color: #0E2A24;">£74</div><div style="font-size: 12.5px; color: #7C8A83;">saved this month</div></div>
+            </div>
+
+            <!-- best day callout -->
+            <div style="background: #EAF6EF; border-radius: 18px; padding: 15px 16px; display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+              <div style="width: 38px; height: 38px; border-radius: 11px; background: #18C172; display: flex; align-items: center; justify-content: center; flex: none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 16 9 9l3 4 3-7 4 10H5Z" fill="#fff"/></svg></div>
+              <div><div style="font-size: 14px; font-weight: 700; color: #0E2A24;">Tuesday was your best day</div><div style="font-size: 13px; color: #5E7068;">£2.90 saved — cold evening, full battery.</div></div>
+            </div>
+
+            <!-- list -->
+            <div style="background: #fff; border: 1px solid #EAF1ED; border-radius: 18px; overflow: hidden;">
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid #F0F4F1;"><div><div style="font-size: 14px; font-weight: 600; color: #0E2A24;">Tue 17 Jun</div><div style="font-size: 12.5px; color: #9FB0A7;">Fully covered</div></div><span style="font-weight: 700; color: #0E9C7A;">+£2.90</span></div>
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 16px;"><div><div style="font-size: 14px; font-weight: 600; color: #0E2A24;">Mon 16 Jun</div><div style="font-size: 12.5px; color: #9FB0A7;">Fully covered</div></div><span style="font-weight: 700; color: #0E9C7A;">+£2.10</span></div>
+            </div>
+          </div>
+
+          <div style="position: absolute; left: 0; right: 0; bottom: 0; background: #fff; border-top: 1px solid #EEF3F0; display: flex; justify-content: space-around; align-items: center; padding: 12px 20px 26px;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #B6C2BB;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M4 11 12 4l8 7" stroke="#B6C2BB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10v8h12v-8" stroke="#B6C2BB" stroke-width="2" stroke-linejoin="round"/></svg><span style="font-size: 11px; font-weight: 600;">Today</span></div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #0E9C7A;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M5 19V10M12 19V5M19 19v-6" stroke="#0E9C7A" stroke-width="2" stroke-linecap="round"/></svg><span style="font-size: 11px; font-weight: 700;">Savings</span></div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #B6C2BB;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3.2" stroke="#B6C2BB" stroke-width="2"/><path d="M12 4v2M12 18v2M4 12h2M18 12h2M6 6l1.5 1.5M16.5 16.5 18 18M18 6l-1.5 1.5M7.5 16.5 6 18" stroke="#B6C2BB" stroke-width="2" stroke-linecap="round"/></svg><span style="font-size: 11px; font-weight: 600;">Settings</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHONE 5: SETTINGS -->
+    <div style="flex: none; width: 360px;">
+      <div style="font-size: 13px; font-weight: 600; color: #5A6B63; margin-bottom: 12px;">Settings · preferences</div>
+      <div style="width: 360px; background: #11201B; border-radius: 46px; padding: 11px; box-shadow: 0 2px 4px rgba(16,36,30,.08), 0 30px 60px rgba(16,36,30,.16);">
+        <div style="background: #F7FAF8; border-radius: 37px; overflow: hidden; height: 760px; position: relative;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 26px 6px; color: #0E2A24;">
+            <span style="font-size: 14px; font-weight: 700;">9:41</span>
+            <div style="display: flex; gap: 6px; align-items: center;"><svg width="17" height="11" viewBox="0 0 18 12" fill="none"><rect x="0" y="7" width="3" height="5" rx="1" fill="#0E2A24"/><rect x="5" y="4" width="3" height="8" rx="1" fill="#0E2A24"/><rect x="10" y="1.5" width="3" height="10.5" rx="1" fill="#0E2A24"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#0E2A24" opacity=".4"/></svg><svg width="22" height="11" viewBox="0 0 24 12" fill="none"><rect x="1" y="1" width="20" height="10" rx="3" stroke="#0E2A24" stroke-opacity=".5"/><rect x="3" y="3" width="15" height="6" rx="1.5" fill="#0E2A24"/><rect x="22" y="4" width="1.5" height="4" rx=".75" fill="#0E2A24"/></svg></div>
+          </div>
+          <div style="padding: 6px 22px 96px;">
+            <div style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 22px; color: #0E2A24; letter-spacing: -.02em; margin-bottom: 16px;">Settings</div>
+
+            <!-- account -->
+            <div style="background: #fff; border: 1px solid #EAF1ED; border-radius: 20px; padding: 16px; display: flex; align-items: center; gap: 13px; margin-bottom: 16px;">
+              <div style="width: 46px; height: 46px; border-radius: 50%; background: #E4F6EC; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 18px; color: #0E9C7A;">S</div>
+              <div style="flex: 1;"><div style="font-weight: 700; font-size: 16px; color: #0E2A24;">Sam Whitfield</div><div style="font-size: 13px; color: #7C8A83;">sam@home.co.uk</div></div>
+              <span style="font-size: 20px; color: #C2CFC8;">›</span>
+            </div>
+
+            <div style="font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #9FB0A7; margin: 4px 4px 10px;">How Hum runs</div>
+            <div style="background: #fff; border: 1px solid #EAF1ED; border-radius: 20px; overflow: hidden; margin-bottom: 16px;">
+              <!-- toggle row -->
+              <div style="display: flex; align-items: center; gap: 13px; padding: 16px; border-bottom: 1px solid #F0F4F1;">
+                <div style="width: 36px; height: 36px; border-radius: 11px; background: #EAF6EF; display: flex; align-items: center; justify-content: center; flex: none;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" fill="#0E9C7A"/></svg></div>
+                <div style="flex: 1;"><div style="font-size: 14.5px; font-weight: 600; color: #0E2A24;">Autopilot</div><div style="font-size: 12.5px; color: #7C8A83;">Let Hum manage charging</div></div>
+                <div style="width: 46px; height: 27px; border-radius: 999px; background: #18C172; position: relative; flex: none;"><div style="position: absolute; top: 3px; right: 3px; width: 21px; height: 21px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.2);"></div></div>
+              </div>
+              <!-- comfort buffer -->
+              <div style="display: flex; align-items: center; gap: 13px; padding: 16px; border-bottom: 1px solid #F0F4F1;">
+                <div style="width: 36px; height: 36px; border-radius: 11px; background: #EAF6EF; display: flex; align-items: center; justify-content: center; flex: none;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z" stroke="#0E9C7A" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+                <div style="flex: 1;"><div style="font-size: 14.5px; font-weight: 600; color: #0E2A24;">Comfort buffer</div><div style="font-size: 12.5px; color: #7C8A83;">Keep a little extra for cold snaps</div></div>
+                <span style="font-size: 13px; font-weight: 700; color: #0E9C7A; background: #E4F6EC; padding: 6px 12px; border-radius: 999px;">Balanced ›</span>
+              </div>
+              <!-- notifications -->
+              <div style="display: flex; align-items: center; gap: 13px; padding: 16px;">
+                <div style="width: 36px; height: 36px; border-radius: 11px; background: #EAF6EF; display: flex; align-items: center; justify-content: center; flex: none;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6Z" stroke="#0E9C7A" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 19a2 2 0 0 0 4 0" stroke="#0E9C7A" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+                <div style="flex: 1;"><div style="font-size: 14.5px; font-weight: 600; color: #0E2A24;">Notifications</div><div style="font-size: 12.5px; color: #7C8A83;">Daily summary &amp; nudges</div></div>
+                <div style="width: 46px; height: 27px; border-radius: 999px; background: #18C172; position: relative; flex: none;"><div style="position: absolute; top: 3px; right: 3px; width: 21px; height: 21px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.2);"></div></div>
+              </div>
+            </div>
+
+            <div style="font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #9FB0A7; margin: 4px 4px 10px;">Connections</div>
+            <div style="background: #fff; border: 1px solid #EAF1ED; border-radius: 20px; overflow: hidden;">
+              <div style="display: flex; align-items: center; gap: 13px; padding: 15px 16px; border-bottom: 1px solid #F0F4F1;"><div style="width: 9px; height: 9px; border-radius: 50%; background: #18C172;"></div><div style="flex: 1; font-size: 14.5px; font-weight: 600; color: #0E2A24;">GivEnergy</div><span style="font-size: 13px; color: #7C8A83;">Connected ›</span></div>
+              <div style="display: flex; align-items: center; gap: 13px; padding: 15px 16px;"><div style="width: 9px; height: 9px; border-radius: 50%; background: #18C172;"></div><div style="flex: 1; font-size: 14.5px; font-weight: 600; color: #0E2A24;">Octopus · Cosy</div><span style="font-size: 13px; color: #7C8A83;">Connected ›</span></div>
+            </div>
+          </div>
+
+          <div style="position: absolute; left: 0; right: 0; bottom: 0; background: #fff; border-top: 1px solid #EEF3F0; display: flex; justify-content: space-around; align-items: center; padding: 12px 20px 26px;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #B6C2BB;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M4 11 12 4l8 7" stroke="#B6C2BB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 10v8h12v-8" stroke="#B6C2BB" stroke-width="2" stroke-linejoin="round"/></svg><span style="font-size: 11px; font-weight: 600;">Today</span></div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #B6C2BB;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><path d="M5 19V10M12 19V5M19 19v-6" stroke="#B6C2BB" stroke-width="2" stroke-linecap="round"/></svg><span style="font-size: 11px; font-weight: 600;">Savings</span></div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; color: #0E9C7A;"><svg width="23" height="23" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3.2" stroke="#0E9C7A" stroke-width="2"/><path d="M12 4v2M12 18v2M4 12h2M18 12h2M6 6l1.5 1.5M16.5 16.5 18 18M18 6l-1.5 1.5M7.5 16.5 6 18" stroke="#0E9C7A" stroke-width="2" stroke-linecap="round"/></svg><span style="font-size: 11px; font-weight: 700;">Settings</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

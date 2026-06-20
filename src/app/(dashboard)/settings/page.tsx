@@ -2,11 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 
 const BATTERY_MODELS = [
   { id: "GIV-AC-3.0", label: "GIV-AC-3.0 (9.5 kWh)", cap: 9.2 },
@@ -22,6 +17,38 @@ const DNO_REGIONS = [
   { id: "L", label: "L — South England" }, { id: "M", label: "M — Yorkshire" },
   { id: "N", label: "N — South Scotland" }, { id: "P", label: "P — North Scotland" },
 ];
+
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <div className="text-xs font-bold tracking-widest uppercase text-[#9FB0A7] mb-2.5 px-1">{title}</div>
+      <div className="bg-white border border-[#EAF1ED] rounded-2xl overflow-hidden">{children}</div>
+    </div>
+  );
+}
+
+function Row({ label, sub, right, borderBottom = true }: { label: string; sub?: string; right: React.ReactNode; borderBottom?: boolean }) {
+  return (
+    <div className={`flex items-center gap-3 px-4 py-3.5 ${borderBottom ? "border-b border-[#F0F4F1]" : ""}`}>
+      <div className="flex-1 min-w-0">
+        <div className="text-sm font-semibold text-[#0E2A24]">{label}</div>
+        {sub && <div className="text-xs text-[#7C8A83] mt-0.5">{sub}</div>}
+      </div>
+      {right}
+    </div>
+  );
+}
+
+function Toggle({ on, onChange }: { on: boolean; onChange: () => void }) {
+  return (
+    <button type="button" onClick={onChange}
+      className="relative shrink-0 w-11 h-6 rounded-full transition-colors"
+      style={{ background: on ? "#18C172" : "#DDE7E1" }}>
+      <div className="absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition-all"
+        style={{ left: on ? "calc(100% - 22px)" : 2 }} />
+    </button>
+  );
+}
 
 export default function SettingsPage() {
   const [profile, setProfile] = useState<Record<string, unknown> | null>(null);
@@ -68,7 +95,7 @@ export default function SettingsPage() {
       updated_at: new Date().toISOString(),
     }).eq("user_id", user.id);
     if (error) setError(error.message);
-    else setSaved(true);
+    else { setSaved(true); setTimeout(() => setSaved(false), 3000); }
     setSaving(false);
   }
 
@@ -82,7 +109,11 @@ export default function SettingsPage() {
     setSwitching(false);
   }
 
-  if (loading) return <div className="text-sm text-gray-500">Loading…</div>;
+  if (loading) return (
+    <div className="flex items-center justify-center min-h-[60vh]">
+      <div className="w-8 h-8 border-2 border-[#18C172] border-t-transparent rounded-full animate-spin" />
+    </div>
+  );
 
   const mode = (profile?.mode as string) ?? "shadow";
   const onboardedAt = profile?.onboarded_at ? new Date(profile.onboarded_at as string) : null;
@@ -90,94 +121,118 @@ export default function SettingsPage() {
   const readyForActive = daysSince >= 14;
 
   return (
-    <div className="max-w-xl space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold">Settings</h1>
-        <p className="text-sm text-gray-500 mt-1">Update your inverter and tariff configuration.</p>
-      </div>
+    <div className="space-y-5 max-w-lg">
+      <h1 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 26, color: "#0E2A24", letterSpacing: "-.02em" }}>Settings</h1>
 
-      {/* Mode switcher */}
-      <Card className="shadow-sm">
-        <CardHeader className="pb-3">
-          <div className="flex items-center justify-between">
-            <CardTitle className="text-base">Control mode</CardTitle>
-            <Badge className={mode === "active" ? "bg-green-100 text-green-800 border border-green-200" : "bg-amber-100 text-amber-800 border border-amber-200"}>
-              {mode === "active" ? "Active" : "Shadow"}
-            </Badge>
-          </div>
-          <CardDescription>
-            {mode === "shadow"
-              ? "Battery Brain is watching but not controlling your inverter."
-              : "Battery Brain is actively programming your charge schedule every 30 minutes."}
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          {mode === "shadow" ? (
-            <div className="space-y-3">
-              {!readyForActive && (
-                <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg p-3">
-                  {daysSince < 14
-                    ? `Shadow mode has been running for ${daysSince} day${daysSince !== 1 ? "s" : ""}. The brain recommends at least 14 days of data before switching to active — ${14 - daysSince} more to go.`
-                    : "Shadow mode has enough data to switch."}
-                </p>
-              )}
-              <Button
-                className="bg-[#00b47a] hover:bg-[#009e6c] text-white w-full"
-                onClick={() => switchMode("active")}
-                disabled={switching}
+      {error && <div className="rounded-2xl bg-red-50 border border-red-200 p-3.5 text-sm text-red-800">{error}</div>}
+
+      {/* How Hum runs */}
+      <Section title="How Hum runs">
+        <Row
+          label="Autopilot"
+          sub="Let Hum manage your charging"
+          right={<Toggle on={mode === "active"} onChange={() => switching ? null : switchMode(mode === "active" ? "shadow" : "active")} />}
+        />
+        <Row
+          label="Comfort buffer"
+          sub="Keep a little extra for cold snaps"
+          right={<span className="text-xs font-bold text-[#0E9C7A] bg-[#E4F6EC] px-3 py-1.5 rounded-full">Balanced ›</span>}
+          borderBottom={false}
+        />
+      </Section>
+
+      {!readyForActive && mode === "shadow" && (
+        <div className="rounded-2xl bg-amber-50 border border-amber-200 p-4 text-sm text-amber-800">
+          Shadow mode has been running for {daysSince} day{daysSince !== 1 ? "s" : ""}. Hum recommends at least 14 days before switching to autopilot — {Math.max(0, 14 - daysSince)} more to go.
+        </div>
+      )}
+
+      {/* Connections */}
+      <Section title="Connections">
+        <Row
+          label="GivEnergy"
+          sub="Battery & inverter"
+          right={
+            <span className="flex items-center gap-1.5 text-xs text-[#7C8A83] font-medium">
+              <span className="w-2 h-2 rounded-full" style={{ background: profile?.ge_serial ? "#18C172" : "#DDE7E1" }} />
+              {profile?.ge_serial ? "Connected" : "Not set"}
+              <span className="text-[#C2CFC8]">›</span>
+            </span>
+          }
+        />
+        <Row
+          label={`Octopus · ${form.octopus_region}`}
+          sub="Tariff & prices"
+          right={
+            <span className="flex items-center gap-1.5 text-xs text-[#7C8A83] font-medium">
+              <span className="w-2 h-2 rounded-full bg-[#18C172]" />
+              Connected <span className="text-[#C2CFC8]">›</span>
+            </span>
+          }
+          borderBottom={false}
+        />
+      </Section>
+
+      {/* Config form */}
+      <form onSubmit={save}>
+        <Section title="Inverter & tariff">
+          <div className="px-4 py-4 space-y-4">
+            <div>
+              <label className="text-xs font-semibold text-[#5A6B63] block mb-2">Inverter serial</label>
+              <input
+                value={form.ge_serial}
+                onChange={e => setForm(f => ({ ...f, ge_serial: e.target.value.toUpperCase() }))}
+                placeholder="CE2240G646"
+                className="w-full bg-[#F4F8F5] border border-[#E5EDE8] rounded-xl px-4 py-3 text-sm text-[#0E2A24] placeholder:text-[#B6C2BB] outline-none focus:border-[#18C172] transition-colors"
+              />
+            </div>
+            <div>
+              <label className="text-xs font-semibold text-[#5A6B63] block mb-2">DNO region</label>
+              <select
+                value={form.octopus_region}
+                onChange={e => setForm(f => ({ ...f, octopus_region: e.target.value }))}
+                className="w-full bg-[#F4F8F5] border border-[#E5EDE8] rounded-xl px-4 py-3 text-sm text-[#0E2A24] outline-none focus:border-[#18C172] transition-colors"
               >
-                {switching ? "Switching…" : readyForActive ? "Switch to active mode" : "Switch anyway (not recommended)"}
-              </Button>
-            </div>
-          ) : (
-            <Button variant="outline" className="w-full" onClick={() => switchMode("shadow")} disabled={switching}>
-              {switching ? "Switching…" : "Switch back to shadow mode"}
-            </Button>
-          )}
-        </CardContent>
-      </Card>
-
-      {/* Inverter settings */}
-      <Card className="shadow-sm">
-        <CardHeader className="pb-3">
-          <CardTitle className="text-base">Inverter &amp; tariff</CardTitle>
-          <CardDescription>These are read-only fields — to change your API key, contact support.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={save} className="space-y-4">
-            <div className="space-y-1.5">
-              <Label>Inverter serial</Label>
-              <Input value={form.ge_serial} onChange={e => setForm(f => ({ ...f, ge_serial: e.target.value.toUpperCase() }))} placeholder="CE2240G646" />
-            </div>
-            <div className="space-y-1.5">
-              <Label>DNO region</Label>
-              <select className="w-full h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm" value={form.octopus_region} onChange={e => setForm(f => ({ ...f, octopus_region: e.target.value }))}>
                 {DNO_REGIONS.map(r => <option key={r.id} value={r.id}>{r.label}</option>)}
               </select>
             </div>
-            <div className="space-y-1.5">
-              <Label>Battery model</Label>
+            <div>
+              <label className="text-xs font-semibold text-[#5A6B63] block mb-2">Battery model</label>
               <div className="space-y-2">
                 {BATTERY_MODELS.map(m => (
                   <button key={m.id} type="button" onClick={() => setForm(f => ({ ...f, battery_model: m.id }))}
-                    className={`w-full p-2.5 rounded-lg border text-sm font-medium text-left transition-colors ${form.battery_model === m.id ? "border-[#00b47a] bg-[#f0fdf4] text-[#166534]" : "border-gray-200 hover:border-gray-300"}`}>
+                    className="w-full p-3 rounded-xl border text-sm font-medium text-left transition-colors"
+                    style={{
+                      borderColor: form.battery_model === m.id ? "#18C172" : "#E5EDE8",
+                      background: form.battery_model === m.id ? "#EAF6EF" : "#F4F8F5",
+                      color: form.battery_model === m.id ? "#0E6645" : "#51635C",
+                    }}>
                     {m.label}
                   </button>
                 ))}
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <input id="solar" type="checkbox" checked={form.has_solar} onChange={e => setForm(f => ({ ...f, has_solar: e.target.checked }))} className="w-4 h-4 accent-[#00b47a]" />
-              <Label htmlFor="solar">I have solar panels</Label>
-            </div>
-            {error && <p className="text-sm text-red-600">{error}</p>}
-            {saved && <p className="text-sm text-green-600">Saved ✓</p>}
-            <Button type="submit" className="w-full bg-[#00b47a] hover:bg-[#009e6c] text-white" disabled={saving}>
+            <label className="flex items-center gap-3 cursor-pointer">
+              <input type="checkbox" checked={form.has_solar} onChange={e => setForm(f => ({ ...f, has_solar: e.target.checked }))}
+                className="w-4 h-4 accent-[#18C172]" />
+              <span className="text-sm font-semibold text-[#0E2A24]">I have solar panels</span>
+            </label>
+
+            {saved && (
+              <div className="flex items-center gap-2 text-sm text-[#0E9C7A] font-medium">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#18C172" /><path d="m8 12 3 3 5-6" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                Saved
+              </div>
+            )}
+
+            <button type="submit" disabled={saving}
+              className="w-full py-3.5 rounded-2xl text-white font-semibold text-sm transition-opacity disabled:opacity-60"
+              style={{ background: "linear-gradient(145deg, #18C172, #0E9C7A)" }}>
               {saving ? "Saving…" : "Save changes"}
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
+            </button>
+          </div>
+        </Section>
+      </form>
     </div>
   );
 }

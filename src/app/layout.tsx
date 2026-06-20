@@ -1,20 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const hanken = Hanken_Grotesk({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: "variable",
+  axes: ["opsz"],
 });
 
 export const metadata: Metadata = {
-  title: "Battery Brain — Smart GivEnergy charging",
-  description: "Automatically charge your GivEnergy battery at the cheapest Octopus times. Solar-aware, savings-tracked, always ready for peak.",
+  title: "Hum — Your home battery, on autopilot",
+  description: "Hum quietly charges your GivEnergy battery when power is cheapest, then runs your home through the expensive evening peak. Save money every day without lifting a finger.",
 };
 
 export default function RootLayout({
@@ -23,11 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${hanken.variable} ${bricolage.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col font-body">{children}</body>
     </html>
   );
 }
