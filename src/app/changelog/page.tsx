@@ -3,6 +3,24 @@ import { APP_VERSION, APP_NAME } from "@/lib/version";
 
 const CHANGELOG = [
   {
+    version: "0.2.3",
+    date: "2026-06-20",
+    title: "The housekeeping release",
+    description:
+      "Three bugs stomped, a logo born, and the app finally looks like a grown-up product. Signup was invisible (white text, green background — oops), the GivEnergy verify call was being blocked by CORS, and onboarding refused to save because we forgot to tell Supabase whose data it was. Also: custom domain live, Google OAuth looking polished, and this very changelog you're reading.",
+    changes: [
+      "Fixed: signup page — white-on-green text replaced with readable dark-on-light layout",
+      "Fixed: GivEnergy verify now routes server-side to avoid CORS block",
+      "Fixed: onboarding RLS error — user_id now included in profile upsert",
+      "New: Hum logo (SVG + PNG) at gethum.co.uk/hum-logo.png",
+      "New: custom domain gethum.co.uk with automatic SSL",
+      "New: Google OAuth consent screen shows 'Hum' with logo",
+      "New: this changelog page",
+      "New: Privacy Policy and Terms of Service pages",
+      "New: persistent footer with privacy/terms links on all pages",
+    ],
+  },
+  {
     version: "0.2.0",
     date: "2026-06-20",
     title: "Hum. It has a name now.",

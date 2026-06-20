@@ -50,9 +50,13 @@ export default async function DashboardLayout({ children }: { children: React.Re
       <footer className="border-t border-[#EEF3F0] py-4">
         <div className="max-w-5xl mx-auto px-6 flex items-center justify-between text-xs text-[#9FB0A7]">
           <span style={{ fontFamily: "var(--font-display)", fontWeight: 800 }}>{APP_NAME}</span>
-          <Link href="/changelog" target="_blank" className="hover:text-[#0E9C7A] transition-colors">
-            v{APP_VERSION}
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link href="/privacy" className="hover:text-[#0E9C7A] transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-[#0E9C7A] transition-colors">Terms</Link>
+            <Link href="/changelog" target="_blank" className="hover:text-[#0E9C7A] transition-colors font-medium">
+              v{APP_VERSION}
+            </Link>
+          </div>
         </div>
       </footer>
     </div>
