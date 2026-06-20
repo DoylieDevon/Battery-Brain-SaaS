@@ -77,11 +77,15 @@ export default function OnboardingPage() {
     setLoading(true); setError("");
     const model = BATTERY_MODELS.find(m => m.id === form.batteryModel)!;
 
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) { setError("Not logged in"); setLoading(false); return; }
+
     const octopusTariff = form.octopusProduct === "COSY"
       ? "COSY-FIX-12M-26-03-23"
       : "GO-VAR-22-10-14";
 
     const { error } = await supabase.from("user_profiles").upsert({
+      user_id: user.id,
       ge_token: form.geToken,
       ge_serial: form.geSerial,
       octopus_product: octopusTariff,
@@ -93,7 +97,7 @@ export default function OnboardingPage() {
       has_solar: form.hasSolar,
       mode: "shadow",
       onboarded_at: new Date().toISOString(),
-    });
+    }, { onConflict: "user_id" });
 
     if (error) { setError(error.message); setLoading(false); return; }
     setStep(3);
