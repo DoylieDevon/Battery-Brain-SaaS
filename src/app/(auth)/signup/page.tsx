@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
 
+const BETA_CLOSED = true; // flip to false when ready to open signups
+
 type Step = "email" | "pin";
 
 function GreenButton({ children, disabled, type = "button" }: { children: React.ReactNode; disabled?: boolean; type?: "button" | "submit" }) {
@@ -71,6 +73,14 @@ export default function SignupPage() {
 
           {/* Card */}
           <div className="bg-white rounded-3xl p-7 shadow-lg border border-[#EAF1ED]">
+            {BETA_CLOSED ? (
+              <>
+                <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 21, color: "#0E2A24", marginBottom: 8 }}>Private beta</h2>
+                <p className="text-sm text-[#7C8A83] leading-relaxed mb-5">Hum is invite-only right now while we fine-tune everything. We&apos;ll open up soon.</p>
+                <p className="text-center text-sm text-[#7C8A83]">Already have an account? <Link href="/login" className="text-[#0E9C7A] font-semibold hover:underline">Log in</Link></p>
+              </>
+            ) : (
+            <>
             <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 21, color: "#0E2A24", marginBottom: 4 }}>
               {step === "email" ? "Get started free" : "Check your email"}
             </h2>
@@ -107,7 +117,8 @@ export default function SignupPage() {
                   No credit card for first 30 days. £4.99/mo after.
                 </p>
               </>
-            ) : (
+            ) : ( // pin step
+
               <form onSubmit={verifyPin} className="space-y-4">
                 <div>
                   <label className="text-xs font-semibold text-[#5A6B63] block mb-2">6-digit code</label>
@@ -121,11 +132,14 @@ export default function SignupPage() {
                   ← Different email
                 </button>
               </form>
-            )}
+            )} {/* end pin/email step */}
+            </> )} {/* end BETA_CLOSED false branch */}
 
-            <p className="text-center text-sm text-[#7C8A83] mt-6">
-              Already have an account? <Link href="/login" className="text-[#0E9C7A] font-semibold hover:underline">Log in</Link>
-            </p>
+            {!BETA_CLOSED && (
+              <p className="text-center text-sm text-[#7C8A83] mt-6">
+                Already have an account? <Link href="/login" className="text-[#0E9C7A] font-semibold hover:underline">Log in</Link>
+              </p>
+            )}
           </div>
         </div>
       </div>

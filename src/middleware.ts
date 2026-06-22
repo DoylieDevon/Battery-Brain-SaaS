@@ -34,6 +34,17 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
+  // Beta allowlist — block any account not in the permitted list
+  if (user && isProtected) {
+    const allowed = (process.env.ALLOWED_EMAILS ?? "").split(",").map(e => e.trim().toLowerCase());
+    if (allowed.length > 0 && !allowed.includes((user.email ?? "").toLowerCase())) {
+      await supabase.auth.signOut();
+      const url = request.nextUrl.clone();
+      url.pathname = "/beta";
+      return NextResponse.redirect(url);
+    }
+  }
+
   return supabaseResponse;
 }
 

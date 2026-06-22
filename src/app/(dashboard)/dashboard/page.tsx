@@ -67,6 +67,39 @@ function todayTotals(flows: FlowSlot[]) {
   return { solar: +solar.toFixed(1), home: +home.toFixed(1), gridImp: +gridImp.toFixed(1), battChg: +battChg.toFixed(1), battDis: +battDis.toFixed(1) };
 }
 
+function weekMissedSavings(flows: FlowSlot[], rates: RateSlot[]) {
+  const rateAt = (ms: number) => rates.find(r => { const f = Date.parse(r.valid_from); const t = r.valid_to ? Date.parse(r.valid_to) : Infinity; return ms >= f && ms < t; })?.value_inc_vat ?? 33.7;
+  const londonDay = (ms: number) => new Date(ms).toLocaleDateString("en-CA", { timeZone: "Europe/London" });
+  const todayStr = londonDay(Date.now());
+
+  const dailyMinRate: Record<string, number> = {};
+  for (const r of rates) {
+    const day = londonDay(Date.parse(r.valid_from));
+    if (!(day in dailyMinRate) || r.value_inc_vat < dailyMinRate[day]) dailyMinRate[day] = r.value_inc_vat;
+  }
+
+  const dailyCharge: Record<string, { kwh: number; cost: number }> = {};
+  for (const s of flows) {
+    const day = s.start_time.slice(0, 10);
+    if (day === todayStr) continue;
+    const gridChg = s.data["4"] || 0;
+    if (!gridChg) continue;
+    const t = new Date(s.start_time.replace(" ", "T")).getTime();
+    if (!dailyCharge[day]) dailyCharge[day] = { kwh: 0, cost: 0 };
+    dailyCharge[day].kwh += gridChg;
+    dailyCharge[day].cost += gridChg * rateAt(t) / 100;
+  }
+
+  return Array.from({ length: 7 }, (_, i) => {
+    const ms = Date.now() - (7 - i) * 864e5;
+    const day = londonDay(ms);
+    const charge = dailyCharge[day] ?? { kwh: 0, cost: 0 };
+    const minRate = dailyMinRate[day] ?? 33.7;
+    const optimal = charge.kwh * minRate / 100;
+    return { day, label: new Date(ms).toLocaleDateString("en-GB", { weekday: "short", timeZone: "Europe/London" }), actual: charge.cost, optimal, missed: Math.max(0, charge.cost - optimal), kwh: +charge.kwh.toFixed(2) };
+  });
+}
+
 function weatherIcon(code: number) {
   if (code === 0) return "☀️";
   if (code <= 2) return "🌤️";
@@ -149,6 +182,7 @@ export default function DashboardPage() {
   const { latest, flows, brain, alerts, config, rates, settings } = data;
   const savings = todaySavings(flows, rates, config);
   const totals  = todayTotals(flows);
+  const missedDays = weekMissedSavings(flows, rates);
   const nowRate = currentRate(rates);
   const mode    = brain?.mode ?? "shadow";
   const decision = brain?.decision;
@@ -276,6 +310,57 @@ export default function DashboardPage() {
           )}
         </div>
       )}
+
+      {/* Missed savings during shadow mode */}
+      {mode === "shadow" && (() => {
+        const totalMissed = missedDays.reduce((s, d) => s + d.missed, 0);
+        const maxActual = Math.max(...missedDays.map(d => d.actual), 0.01);
+        return (
+          <div className="bg-white border border-[#EAF1ED] rounded-3xl p-6">
+            <div className="flex items-start justify-between mb-4">
+              <div>
+                <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 16, color: "#0E2A24" }}>What Hum would have saved</div>
+                <div className="text-xs text-[#9FB0A7] mt-0.5">Charging cost vs. cheapest available rate · last 7 days</div>
+              </div>
+              {totalMissed > 0.01 && (
+                <div className="text-right shrink-0 ml-4">
+                  <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 20, color: "#B84330" }}>−{fmtGbp(totalMissed)}</div>
+                  <div className="text-xs text-[#9FB0A7]">this week</div>
+                </div>
+              )}
+            </div>
+            <div className="space-y-2">
+              {missedDays.map(d => (
+                <div key={d.day} className="flex items-center gap-3">
+                  <span className="text-xs font-semibold text-[#9FB0A7] w-7 shrink-0">{d.label}</span>
+                  <div className="flex-1 relative h-6 rounded-lg overflow-hidden" style={{ background: "#F4F8F5" }}>
+                    {d.actual > 0 && (
+                      <div className="absolute inset-y-0 left-0 rounded-lg flex items-center" style={{ width: `${(d.actual / maxActual) * 100}%`, background: "#FFD4C8" }}>
+                        {d.optimal > 0 && (
+                          <div className="absolute inset-y-0 left-0 rounded-l-lg" style={{ width: `${(d.optimal / d.actual) * 100}%`, background: "#B6DFC8" }} />
+                        )}
+                      </div>
+                    )}
+                    {d.kwh === 0 && <span className="absolute inset-0 flex items-center pl-2 text-xs text-[#C2CFC8]">No charging</span>}
+                  </div>
+                  <div className="text-right shrink-0 w-24">
+                    {d.kwh > 0 ? (
+                      <>
+                        <span className="text-xs font-semibold text-[#B84330]">{fmtGbp(d.actual)}</span>
+                        {d.missed > 0.005 && <span className="text-xs text-[#9FB0A7]"> → {fmtGbp(d.optimal)}</span>}
+                      </>
+                    ) : <span className="text-xs text-[#C2CFC8]">—</span>}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-4 flex items-center gap-3 text-xs text-[#7C8A83]">
+              <span className="inline-block w-3 h-3 rounded-sm bg-[#FFD4C8] shrink-0" /> Actual cost
+              <span className="inline-block w-3 h-3 rounded-sm bg-[#B6DFC8] shrink-0 ml-2" /> Hum&apos;s target
+            </div>
+          </div>
+        );
+      })()}
 
       {/* Weather */}
       {weather && (

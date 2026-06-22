@@ -2,6 +2,7 @@ import Link from "next/link";
 import { APP_VERSION, APP_NAME } from "@/lib/version";
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
+import { TrialBanner } from "@/components/dashboard/TrialBanner";
 
 function HumWordmark() {
   return (
@@ -42,7 +43,8 @@ export default async function DashboardLayout({ children }: { children: React.Re
       </header>
 
       {/* Page content */}
-      <main className="flex-1 max-w-5xl mx-auto w-full px-6 py-8">
+      <main className="flex-1 max-w-5xl mx-auto w-full px-6 py-8 space-y-4">
+        <TrialBanner />
         {children}
       </main>
 

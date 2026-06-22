@@ -3,6 +3,21 @@ import { APP_VERSION, APP_NAME } from "@/lib/version";
 
 const CHANGELOG = [
   {
+    version: "0.2.5",
+    date: "2026-06-22",
+    title: "Private beta lockdown + trial clock",
+    description:
+      "Hum is invite-only for now — the signup page shows a friendly 'private beta' message, and any account not on the allowlist gets bounced before it can touch anything. A trial countdown banner now appears in the dashboard so you always know how many days are left before the free period ends. And if you're still in shadow mode, a new weekly card shows you exactly what Hum would have saved each day — daily charging cost vs. the cheapest available rate — so you can see the case for going active building up in real time.",
+    changes: [
+      "New: private beta mode — signup shows waitlist message, no new accounts can be created",
+      "New: server-side email allowlist in middleware (ALLOWED_EMAILS env var) blocks any non-permitted accounts",
+      "New: /beta page shown to non-allowlisted users who somehow get a session",
+      "New: trial countdown banner in the dashboard layout — shows days remaining, turns urgent (amber) inside 7 days",
+      "New: 'What Hum would have saved' card on the dashboard — 7-day shadow mode missed savings breakdown with bar chart",
+      "Improved: missed savings calculation uses the actual cheapest rate available each day vs. what was paid",
+    ],
+  },
+  {
     version: "0.2.4",
     date: "2026-06-20",
     title: "The dashboard grew up",
